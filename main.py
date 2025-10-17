@@ -10,7 +10,7 @@ app = FastAPI(title="TaskBot", description="Handles AI code tasks and pushes to 
 last_task = {}
 
 GITHUB_API = "https://api.github.com"
-PAGES_BASE = f"https://{get_settings().GITHUB_USERNAME}.github.io"
+PAGES_BASE = f"https://{get_settings().GIT_USERNAME}.github.io"
 
 def check_secret(sec):
     return sec == cfg.STUDENT_SECRET
