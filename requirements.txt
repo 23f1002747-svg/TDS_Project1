@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+httpx>=0.28.0
+gitpython
+pydantic[email]
+pydantic_settings
+python-dotenv
