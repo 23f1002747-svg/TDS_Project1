@@ -16,8 +16,8 @@ def check_secret(sec):
     return sec == cfg.STUDENT_SECRET
 
 async def prep_repo(local, name, auth_url, http_url, round_num):
-    gh_user = cfg.GITHUB_USERNAME
-    gh_token = cfg.GITHUB_TOKEN
+    gh_user = cfg.GIT_USERNAME
+    gh_token = cfg.GIT_TOKEN
     headers = {
         "Authorization": f"token {gh_token}",
         "Accept": "application/vnd.github.v3+json",
@@ -42,8 +42,8 @@ async def prep_repo(local, name, auth_url, http_url, round_num):
             raise
 
 async def push_repo(repo, tid, rnd, rname):
-    gh_user = cfg.GITHUB_USERNAME
-    gh_token = cfg.GITHUB_TOKEN
+    gh_user = cfg.GIT_USERNAME
+    gh_token = cfg.GIT_TOKEN
     headers = {
         "Authorization": f"token {gh_token}",
         "Accept": "application/vnd.github.v3+json",
@@ -185,8 +185,8 @@ async def makeAndPushStuff(info: TaskRequest):
 
     print(f"running {tid} round {rnd}")
     repo_name = tid.replace(' ', '-').lower()
-    gh_user = cfg.GITHUB_USERNAME
-    gh_token = cfg.GITHUB_TOKEN
+    gh_user = cfg.GIT_USERNAME
+    gh_token = cfg.GIT_TOKEN
     auth = f"https://{gh_user}:{gh_token}@github.com/{gh_user}/{repo_name}.git"
     http_url = f"https://github.com/{gh_user}/{repo_name}"
     base = os.path.join(os.getcwd(), "generated_tasks")
